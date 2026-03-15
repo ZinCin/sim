@@ -3,7 +3,6 @@ import os
 SITE_URL = "https://zincin.github.io/sim/"
 
 HTML_TEMPLATE = """<!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +19,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <style>
-        :root {{ --bg: #0a0b10; --card: #161922; --accent: #4aa9c2; --text: #e0e0e0; }}
+        :root {{ --bg: #212425; --card: #2c2f31; --accent: #40a3bd; --text: #a7a5a2; }}
         body {{ 
             background: var(--bg); color: var(--text); font-family: 'Rubik', sans-serif; 
             margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; 
@@ -33,8 +32,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <div class="player-wrap">
+        <!-- Используем абсолютный путь через {site_url} чтобы корректно работало на GitHub Pages -->
         <video id="vid" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1000" height="560">
-            <source src="../../videos/{video_id}/video.mp4" type="video/mp4">
+            <source src="{site_url}/videos/{video_id}/video.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
     </div>
@@ -45,13 +45,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <script>
-        // Упрощённая инициализация: теперь используем обычный MP4-файл вместо HLS-плейлиста.
+        // Обычная инициализация video.js для MP4
         const player = videojs('vid');
-        // Если нужен автоплей в современных браузерах — можно включить player.muted(true); player.play();
+        // При необходимости автозапуска:
+        // player.muted(true); player.play();
     </script>
 </body>
-</html>
-"""
+</html>"""
 
 
 def build():
