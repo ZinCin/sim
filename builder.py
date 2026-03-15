@@ -33,7 +33,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
     <div class="player-wrap">
         <video-js id="vid" class="vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1000" height="560">
-            <source src="videos/{video_id}/playlist.m3u8" type="application/x-mpegURL">
+            <source src="../../videos/{video_id}/playlist.m3u8" type="application/x-mpegURL">
         </video-js>
     </div>
     <div class="info">
