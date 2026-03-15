@@ -3,6 +3,7 @@ import os
 SITE_URL = "https://zincin.github.io/sim/"
 
 HTML_TEMPLATE = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -32,9 +33,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <div class="player-wrap">
-        <video-js id="vid" class="vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1000" height="560">
-            <source src="../../videos/{video_id}/playlist.m3u8" type="application/x-mpegURL">
-        </video-js>
+        <video id="vid" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1000" height="560">
+            <source src="../../videos/{video_id}/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
     </div>
     <div class="info">
         <h1>{title}</h1>
@@ -42,16 +44,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-    <script src="https://unpkg.com/videojs-contrib-quality-levels@4.1.0/dist/videojs-contrib-quality-levels.min.js"></script>
-    <script src="https://unpkg.com/videojs-hls-quality-selector@2.0.0/dist/videojs-hls-quality-selector.min.js"></script>
     <script>
-        const player = videojs('vid', {{
-            html5: {{ vhs: {{ overrideNative: true }} }},
-            nativeVideoTracks: false,
-            nativeAudioTracks: false,
-            nativeTextTracks: false
-        }});
-        player.hlsQualitySelector({{ displayCurrentQuality: true }});
+        // Упрощённая инициализация: теперь используем обычный MP4-файл вместо HLS-плейлиста.
+        const player = videojs('vid');
+        // Если нужен автоплей в современных браузерах — можно включить player.muted(true); player.play();
     </script>
 </body>
 </html>
