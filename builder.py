@@ -61,10 +61,9 @@ def build():
     title = input("Заголовок: ").strip()
     description = input("Описание: ").strip()
 
-    page_dir = os.path.join(base_path, "video", video_id)
+    page_dir = os.path.join(base_path, "w", video_id)
     os.makedirs(page_dir, exist_ok=True)
 
-    # Важно: В <source src="..."> путь должен начинаться с /название_репозитория/
     html = HTML_TEMPLATE.format(
         title=title,
         description=description,
@@ -75,11 +74,10 @@ def build():
     with open(os.path.join(page_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
 
-    # Создаем .nojekyll если его нет
     with open(os.path.join(base_path, ".nojekyll"), "a") as f:
         pass
 
-    print(f"\nГотово. Проверь, что в папке 'sim/videos/{video_id}' лежат файлы .m3u8 и .ts")
+    print(f"Ready")
 
 
 if __name__ == "__main__":
