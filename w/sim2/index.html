@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семечки</title>
+
+    <meta property="og:title" content="Семечки">
+    <meta property="og:description" content="Решил немного разнообразить жизнь организмов и добавил семечки - желтые клетки. Теперь благодаря семечкам организм может накопить немного энергии или оставить потомство.">
+    <meta property="og:image" content="https://zincin.github.io/sim//static/thumbnails/sim2.jpg">
+    <meta property="og:type" content="video.other">
+    <meta property="og:url" content="https://zincin.github.io/sim//video/sim2/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <style>
+        :root { --bg: #212425; --card: #2c2f31; --accent: #40a3bd; --text: #a7a5a2; }
+        body { 
+            background: var(--bg); color: var(--text); font-family: 'Rubik', sans-serif; 
+            margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; 
+        }
+        .player-wrap { width: 100%; max-width: 1000px; border-radius: 12px; overflow: hidden; border: 1px solid #222; background: #000; }
+        .info { width: 100%; max-width: 1000px; margin-top: 25px; background: var(--card); padding: 25px; border-radius: 12px; box-sizing: border-box; }
+        h1 { margin: 0 0 10px 0; color: var(--accent); font-size: 1.5em; }
+        p { line-height: 1.6; opacity: 0.8; margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="player-wrap">
+        <!-- Используем абсолютный путь через https://zincin.github.io/sim/ чтобы корректно работало на GitHub Pages -->
+        <video id="vid" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1000" height="560">
+            <source src="https://zincin.github.io/sim//videos/sim2/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
+    </div>
+    <div class="info">
+        <h1>Семечки</h1>
+        <p>Решил немного разнообразить жизнь организмов и добавил семечки - желтые клетки. Теперь благодаря семечкам организм может накопить немного энергии или оставить потомство.</p>
+    </div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        // Обычная инициализация video.js для MP4
+        const player = videojs('vid');
+        // При необходимости автозапуска:
+        // player.muted(true); player.play();
+    </script>
+</body>
+</html>
