@@ -32,7 +32,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <div class="player-wrap">
-        <!-- Используем абсолютный путь через {site_url} чтобы корректно работало на GitHub Pages -->
         <video id="vid" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1000" height="560">
             <source src="{site_url}/videos/{video_id}/video.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
@@ -45,9 +44,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <script>
-        // Обычная инициализация video.js для MP4
         const player = videojs('vid');
-        // При необходимости автозапуска:
         // player.muted(true); player.play();
     </script>
 </body>
